@@ -14,6 +14,7 @@ HUGGING_FACE_REPO_ID="mistralai/Mistral-7B-Instruct-v0.3"
 DB_FAISS_PATH="vectorstore/db_faiss"
 
 # ---- AUTHENTICATION ----
+
 credentials = {
     "usernames": {
         "sid": {
@@ -38,7 +39,8 @@ authenticator = stauth.Authenticate(
 @st.cache_resource
 def get_vectorstore():
     embedding_model=HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
+        model_name="sentence-transformers/all-MiniLM-L6-v2",
+        model_kwargs={"device": "cpu"}
     )
     db = FAISS.load_local(DB_FAISS_PATH, embedding_model, allow_dangerous_deserialization=True)
     return db
