@@ -11,6 +11,7 @@ faiss-cpu = "*"
 pypdf = "*"
 streamlit = "*"
 streamlit-authenticator = "*"
+torch = {version = "==2.1.0+cpu", index = "pytorch-cpu"} 
 
 [dev-packages]
 

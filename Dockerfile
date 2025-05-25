@@ -12,15 +12,12 @@ RUN apt-get update && apt-get install -y \
 
 # Set working directory
 WORKDIR /app
-
-# Copy Pipenv files and app code
-COPY Pipfile Pipfile.lock ./
 COPY . .
 
-# Install pipenv and dependencies
-RUN pip install pipenv && pipenv install --deploy --ignore-pipfile
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Streamlit port
 EXPOSE 8501
 
-CMD ["pipenv", "run", "streamlit", "run", "aichatdoctor.py", "--server.port=8501", "--server.enableCORS=false"]
+CMD ["streamlit", "run", "aichatdoctor.py", "--server.port=8501", "--server.address=0.0.0.0"]
