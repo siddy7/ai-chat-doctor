@@ -1,6 +1,7 @@
 import os
 import streamlit as st
 import streamlit_authenticator as stauth
+import torch
 
 from langchain_huggingface import HuggingFaceEndpoint
 from langchain_core.prompts import PromptTemplate
@@ -63,6 +64,7 @@ def load_llm(huggingface_repo_id, HF_TOKEN):
 
 def main():
     st.title("Sid's AI chat doctor")
+    st.write("Torch is using:", "CUDA" if torch.cuda.is_available() else "CPU")
 
     if 'messages' not in st.session_state:
         st.session_state.messages = []
