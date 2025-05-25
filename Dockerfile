@@ -1,5 +1,5 @@
 # Dockerfile
-FROM python:3.10-slim
+FROM python:3.13-slim
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -23,4 +23,4 @@ RUN pip install pipenv && pipenv install --deploy --ignore-pipfile
 # Streamlit port
 EXPOSE 8501
 
-CMD ["pipenv", "run", "streamlit", "run", "app.py", "--server.port=8501", "--server.enableCORS=false"]
+CMD ["pipenv", "run", "streamlit", "run", "aichatdoctor.py", "--server.port=8501", "--server.enableCORS=false"]
