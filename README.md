@@ -1,6 +1,8 @@
 # 🧠 Sid's AI Chat Doctor
 
-A locally hosted, private LLM-powered chatbot trained on trusted medical PDFs using LangChain, FAISS, and HuggingFace.  
+https://ai-chat-doc.sidcloud.uk/
+
+A private LLM-powered chatbot trained on trusted medical PDFs using LangChain, FAISS, and HuggingFace.  
 Ask health-related questions and get context-aware responses — with source citations.
 
 ---
